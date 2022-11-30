@@ -1,0 +1,39 @@
+#include <stdio.h>
+void swap(int* a, int* b)
+{
+	int tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+int main()
+{
+	int a[7] = {1, 4, 6, 4, 4, 1, 6};
+	for (int i = 0; i <7; i++)
+	{
+		for (int j = i + 1; j < 7; j++)
+			if (a[i]<a[j])
+			
+			swap(&a[i], &a[j]);
+	}
+	int soGiongNhau = a[0];
+	int dem = 0;
+	for (int i = 0; i < 7; i++)
+	{
+		if (a[i]== soGiongNhau)
+		{
+			dem++;
+		}
+		if (soGiongNhau !=a[i])
+		{
+			printf("so %d xuat hien %d lan\n", a[i - 1], dem);
+			soGiongNhau = a[i];
+			dem = 1;
+		}
+		if (i==6)
+		{
+			printf("so %d suat hien %d lan\n", a[i], dem);
+
+		}
+	}
+	return 0;
+}
